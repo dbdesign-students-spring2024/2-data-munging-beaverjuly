@@ -28,21 +28,14 @@ def main():
         lines = file.readlines()
       
     data_lines = lines[7:-6]
-
-    # Assuming the first data line after skipped lines is the column header
     column_headers = data_lines[0]
-    data_lines = data_lines[1:]  # Remove header from data lines
-
-    # Further clean, convert, and format data
+    data_lines = data_lines[1:]
     cleaned_data = clean_and_convert_data(data_lines)
-
-    # Write cleaned and converted data to a new CSV file
+    
     with open('data/clean_data.csv', 'w') as file:
         file.write(column_headers)
         for line in cleaned_data:
-            # Optionally standardize space as a separator if desired
-            standardized_line = ' '.join(line.split())
-            file.write(standardized_line + '\n')
+            file.write(line + '\n')
 
 if __name__ == '__main__':
     main()
