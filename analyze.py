@@ -29,6 +29,7 @@ def calculate_decade_average(file_path):
 
     for decade in sorted(decade_data.keys()):
         avg_anomaly = decade_data[decade]['sum'] / decade_data[decade]['count']
+        
         print(f"{decade}s: {avg_anomaly:.2f}°F")
 
 if __name__ == "__main__":
