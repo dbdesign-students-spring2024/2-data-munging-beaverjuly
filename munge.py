@@ -14,17 +14,16 @@ def clean_and_convert_data(lines):
             if temp == '***': 
                 converted_temps.append('None')
             else:
-                try:
-                    converted_temps = [parts[0]] + [convert_to_fahrenheit(float(temp)) for temp in parts[1:-1]] + [parts[-1]]
-                    cleaned_line = ' '.join(converted_temps)
-                    cleaned_data.append(cleaned_line)
-                except ValueError:
-                    continue
+                converted_temps = (
+                [parts[0]]
+                + [convert_to_fahrenheit(float(temp)) if temp.isdigit() else temp for temp in parts[1:-1]]
+                + [parts[-1]]
+                )
 
     return cleaned_data
 
 def main():
-    with open('data/raw_data.txt', 'r') as file:
+    with open('data/Workshop1_Dataset.txt', 'r') as file:
         lines = file.readlines()
       
     data_lines = lines[7:-6]
