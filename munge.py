@@ -13,7 +13,7 @@ def clean_and_convert_data(lines):
         
         for temp in parts[1:-1]:
             if temp == "***" or temp == "****": 
-                 converted_temps.append('None')
+                 converted_temps.append('NA')
             else:
                 try:
                     converted_value = convert_to_fahrenheit(float(temp))
