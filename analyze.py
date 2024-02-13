@@ -11,9 +11,9 @@ def calculate_decade_average(file_path):
         for row in reader:
             try:
                 year = int(row[0]) 
-                decade = (year // 10) * 10 
+                decade = (year // 10) * 10 #calculate which decade it is
                 
-                for anomaly_str in row[1:]:
+                for anomaly_str in row[1:-6]: #Exclude the last few columns from computation
                     if anomaly_str == 'NA':
                         continue
                     anomaly = float(anomaly_str)
